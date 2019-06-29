@@ -1,10 +1,11 @@
 module.exports = {
     sync: function(nombre) {
-        return "Hola ${nombre}! Bienvenido a Node.js";
+        return `Hola ${nombre}! Bienvenido a Node.js`; 
     },
     withCallback: function(nombre, cb) {
+        console.log('comenzando llamada...')
         setTimeout(()=>{
-            cb(nombre)
+            console.log(cb(nombre))
         }, 5000);
     },
     withPromise: function(nombre) {
