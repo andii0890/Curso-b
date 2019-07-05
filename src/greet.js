@@ -1,5 +1,7 @@
 const EventEmitter = require('events');
-class MyEmitter extends EventEmitter {}
+class MyEmitter extends EventEmitter {
+
+}
 const myEmitter = new MyEmitter();
 
 myEmitter.on('clap', () => {
@@ -17,5 +19,6 @@ myEmitter.on('shout', text => {
 myEmitter.on('call', (name, cb) => {
     cb(name);
 });
+
 
 module.exports = myEmitter;
