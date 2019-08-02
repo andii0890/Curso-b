@@ -6,14 +6,27 @@ module.exports = () => {
 	const loop = setInterval(checkQueue, 5000);
 
 	function checkQueue() {
-		console.info(`Queues: {Players: ${Object.keys(players).lenght}, OnWait: ${onWait.lenght}}`);
-		while (onMatch.Wait .lenght > 2){
+		console.info(`Queues: {Players: ${Object.keys(players).length}, OnWait: ${onWait.length}, OnMatch: ${Object.keys(onMatch).length} }`);
+		while (onWait.length >= 2){
 			console.log("Constructing room...")
-			const p1 = players[onWait.poop()].user.name;
-			const p2 = players[onWait.poop()].user.name;
+			const p1 = players[onWait.pop()].user.name;
+			const p2 = players[onWait.pop()].user.name;
 			console.log(`We created a match for ${p1} and ${p2}`)
 			
 		}
+	}
+
+	function createMatch(p1ID, p2ID) 
+	{
+		const roomId = p1ID = p2ID;
+		players[p1ID].room = roomId;
+		players[p2ID].room = roomId;
+
+		if (!onMatch[roomID]) onMatch[roomID] = {}
+		
+		players[p1ID].socket.emit("gameState", {});
+		players[p2ID].socket.emit("gameState", {});
+			
 	}
 
 	return {
